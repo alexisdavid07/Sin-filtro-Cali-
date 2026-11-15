@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SIN FILTRO CALI: entrenamiento cognitivo-deportivo para futbolistas. Entrena lo que no siempre ves en el juego.">
+  <title>SIN FILTRO CALI | Entrena lo que no siempre ves</title>
+  <style>
+    :root{
+      --navy:#101d35; --navy2:#172b4d; --lime:#c7f464; --green:#8dc63f;
+      --paper:#f5f7f2; --white:#fff; --muted:#aab6c7; --ink:#172033;
+      --line:rgba(255,255,255,.13); --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1140px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(16,29,53,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:900;letter-spacing:1.5px}
+    .brand-mark{width:42px;height:42px;border-radius:13px;background:var(--lime);display:grid;place-items:center;color:var(--navy);font-weight:1000;font-size:21px;transform:skew(-7deg)}
+    .brand small{display:block;color:var(--lime);font-size:9px;letter-spacing:3px;margin-top:2px}
+    nav{display:flex;gap:24px;color:#e6ebf2;font-size:13px;font-weight:650}
+    nav a:hover{color:var(--lime)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--lime);color:var(--navy);padding:13px 19px;border-radius:999px;font-weight:850;font-size:13px;border:0}
+    .hero{background:radial-gradient(circle at 80% 20%,#29456a 0,#172b4d 32%,#101d35 72%);color:white;padding:86px 0 82px;overflow:hidden;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+    .eyebrow{color:var(--lime);font-size:12px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase}
+    h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-3px;margin:18px 0 22px;max-width:680px}
+    h1 span{color:var(--lime)}
+    .hero p{color:#d0d9e5;font-size:17px;line-height:1.7;max-width:570px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:1px solid #8293aa;color:white;padding:13px 19px;border-radius:999px;font-size:13px;font-weight:800}
+    .hero-art{min-height:370px;position:relative;display:grid;place-items:center}
+    .orbit{width:min(360px,90vw);aspect-ratio:1;border:1px solid rgba(199,244,100,.38);border-radius:50%;display:grid;place-items:center;position:relative}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px dashed rgba(199,244,100,.35);border-radius:50%;inset:28px}
+    .orbit:after{inset:65px}
+    .ball{width:150px;height:150px;border-radius:50%;background:linear-gradient(145deg,#f8fff0,#a9d95b);display:grid;place-items:center;color:var(--navy);font-size:58px;box-shadow:0 25px 65px #0007;z-index:2}
+    .light{position:absolute;width:48px;height:48px;border-radius:15px;background:var(--lime);box-shadow:0 0 35px #c7f46488;display:grid;place-items:center;color:var(--navy);font-size:21px;font-weight:1000}
+    .l1{top:25px;left:50px}.l2{right:15px;top:115px;background:#65d8ff}.l3{bottom:25px;left:65px;background:#ffcf5b}.l4{right:55px;bottom:55px;background:#ff7777}
+    .hero-note{position:absolute;bottom:0;right:0;color:#d9e3ef;font-size:11px;letter-spacing:1px}
+    section{padding:82px 0}
+    .section-head{max-width:700px;margin-bottom:35px}
+    .kicker{font-size:11px;letter-spacing:2px;color:#5c8b1d;font-weight:900;text-transform:uppercase}
+    h2{font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-1.5px;margin:12px 0;color:var(--navy)}
+    .section-head p{color:#647084;line-height:1.7;margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+    .about-panel{background:var(--navy);border-radius:var(--radius);padding:32px;color:white;position:relative;overflow:hidden}
+    .about-panel:after{content:"SF";position:absolute;right:-8px;bottom:-58px;font-size:190px;font-weight:1000;color:#ffffff0b}
+    .about-panel h3{font-size:25px;margin:0 0 14px;position:relative}
+    .about-panel p{color:#d1d9e5;line-height:1.75;position:relative}
+    .pill-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px;position:relative}
+    .pill{border:1px solid #ffffff30;border-radius:30px;padding:8px 12px;font-size:11px;color:var(--lime);font-weight:750}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .stat{background:#fff;border:1px solid #e4e9df;border-radius:16px;padding:18px}
+    .stat strong{display:block;font-size:26px;color:var(--navy)}
+    .stat span{font-size:11px;color:#697589;line-height:1.4}
+    .services{background:#edf1e9}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{background:#fff;border-radius:20px;overflow:hidden;border:1px solid #e5eadd;transition:.2s}
+    .service:hover{transform:translateY(-5px);box-shadow:0 18px 40px #172b4d12}
+    .service-art{height:155px;background:linear-gradient(135deg,#142541,#29456a);display:grid;place-items:center;position:relative;overflow:hidden}
+    .service-art svg{width:100%;height:100%}
+    .service-body{padding:20px}
+    .service-body h3{margin:0 0 8px;color:var(--navy);font-size:18px}
+    .service-body p{margin:0;color:#697589;font-size:13px;line-height:1.65}
+    .method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{padding:22px;border-radius:18px;background:var(--navy);color:white;min-height:190px}
+    .step b{color:var(--lime);font-size:12px;letter-spacing:1px}
+    .step h3{font-size:18px;margin:14px 0 8px}
+    .step p{font-size:12px;color:#c5d0df;line-height:1.6;margin:0}
+    .research{background:var(--navy);color:white}
+    .research h2{color:white}
+    .research .section-head p{color:#c4cfdd}
+    .research-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .research-card{border:1px solid #ffffff25;background:#ffffff09;border-radius:18px;padding:22px}
+    .research-card strong{display:block;color:var(--lime);font-size:34px;letter-spacing:-1px}
+    .research-card span{display:block;color:#d0d9e5;font-size:12px;line-height:1.55;margin-top:8px}
+    .research-note{font-size:11px;color:#9eacc0;line-height:1.6;margin-top:20px;max-width:850px}
+    .plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:820px}
+    .plan{background:white;border:1px solid #e3e9dc;border-radius:22px;padding:27px}
+    .plan.featured{background:var(--navy);color:white;border-color:var(--navy)}
+    .plan h3{margin:0 0 10px;font-size:21px}
+    .price{font-size:34px;font-weight:950;letter-spacing:-1px;margin:12px 0}
+    .price small{font-size:12px;font-weight:600;letter-spacing:0;color:#8490a0}
+    .featured .price small{color:#b9c6d6}
+    .plan p,.plan li{font-size:13px;line-height:1.65;color:#6b7688}
+    .featured p,.featured li{color:#c6d1df}
+    .plan ul{padding-left:18px}
+    .contact{background:linear-gradient(120deg,#c7f464,#e4ffab);padding:55px 0}
+    .contact-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .contact h2{margin:0;color:var(--navy)}
+    .contact p{margin:9px 0 0;color:#45552b}
+    .contact .btn{background:var(--navy);color:white}
+    footer{background:#0b1528;color:#aab6c7;padding:28px 0;font-size:12px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .disclaimer{font-size:10px;color:#77869c;margin-top:8px}
+    @media(max-width:800px){
+      nav{display:none}.hero-grid,.about-grid{grid-template-columns:1fr}.hero{padding:65px 0}.hero-art{min-height:300px}
+      .cards{grid-template-columns:repeat(2,1fr)}.method-grid,.research-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-inner{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:520px){
+      section{padding:62px 0}.cards,.plans{grid-template-columns:1fr}.stats{grid-template-columns:1fr}
+      .research-grid{grid-template-columns:repeat(2,1fr)}.method-grid{grid-template-columns:1fr 1fr}
+      h1{letter-spacing:-2px}.hero p{font-size:15px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="SIN FILTRO CALI inicio">
+      <span class="brand-mark">SF</span><span>SIN FILTRO CALI<small>ENTRENAMIENTO COGNITIVO-DEPORTIVO</small></span>
+    </a>
+    <nav><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#metodo">Metodología</a><a href="#investigacion">Investigación</a></nav>
+    <a class="nav-cta" href="#contacto">Conócenos</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Más visión. Mejor decisión. Mejor juego.</div>
+      <h1>Entrena lo que <span>no siempre ves</span> en el juego.</h1>
+      <p>Potenciamos las capacidades cognitivas de futbolistas mediante ejercicios dinámicos, estímulos visuales y luces inteligentes. La tecnología es la herramienta; tu desarrollo dentro de la cancha es el objetivo.</p>
+      <div class="hero-actions"><a class="btn" href="#servicios">Explorar servicios</a><a class="btn-outline" href="#metodo">Conocer metodología</a></div>
+    </div>
+    <div class="hero-art" aria-label="Ilustración de entrenamiento con luces inteligentes">
+      <div class="orbit"><div class="ball">⚽</div><div class="light l1">●</div><div class="light l2">●</div><div class="light l3">●</div><div class="light l4">●</div></div>
+      <div class="hero-note">CALI · COLOMBIA</div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker">Quiénes somos</div>
+      <h2>El fútbol también se juega con la mente.</h2>
+      <p style="color:#647084;line-height:1.8">SIN FILTRO CALI es una propuesta de entrenamiento complementario para futbolistas. Integramos luces inteligentes, movimiento y situaciones de decisión para trabajar habilidades que influyen en la lectura del juego.</p>
+      <div class="stats">
+        <div class="stat"><strong>45 min</strong><span>Duración aproximada de una sesión piloto</span></div>
+        <div class="stat"><strong>18–25</strong><span>Segmento inicial de futbolistas</span></div>
+        <div class="stat"><strong>Cali</strong><span>Zona de enfoque inicial</span></div>
+      </div>
+    </div>
+    <div class="about-panel">
+      <h3>Nuestra propuesta de valor</h3>
+      <p>Entrenamiento cognitivo-deportivo que combina ejercicios adaptados al fútbol, estímulos de luces inteligentes, progresión por niveles y seguimiento individual para fortalecer la toma de decisiones y otras capacidades cognitivas.</p>
+      <div class="pill-row"><span class="pill">Metodología</span><span class="pill">Tecnología</span><span class="pill">Seguimiento</span><span class="pill">Evaluación</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Qué entrenamos</div><h2>Seis servicios para llevar tu atención al siguiente nivel.</h2><p>Las actividades se ajustan al nivel del deportista y se integran con desplazamientos y acciones propias del fútbol.</p></div>
+    <div class="cards">
+      <article class="service"><div class="service-art"><svg viewBox="0 0 320 155"><circle cx="160" cy="76" r="42" fill="none" stroke="#c7f464" stroke-width="3"/><path d="M160 34V118M118 76H202M130 46L190 106M190 46L130 106" stroke="#fff" stroke-width="2" opacity=".8"/><circle cx="160" cy="76" r="12" fill="#c7f464"/><circle cx="70" cy="40" r="9" fill="#65d8ff"/><circle cx="250" cy="112" r="9" fill="#ffcf5b"/></svg></div><div class="service-body"><h3>Velocidad de reacción</h3><p>Ejercicios de respuesta rápida ante estímulos visuales y señales cambiantes.</p></div></article>
+      <article class="service"><div class="service-art"><svg viewBox="0 0 320 155"><path d="M35 118L100 38L160 118L220 38L285 118" fill="none" stroke="#c7f464" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="38" r="12" fill="#65d8ff"/><circle cx="220" cy="38" r="12" fill="#ffcf5b"/><circle cx="160" cy="118" r="12" fill="#c7f464"/></svg></div><div class="service-body"><h3>Coordinación</h3><p>Retos que conectan percepción, desplazamiento y control corporal.</p></div></article>
+      <article class="service"><div class="service-art"><svg viewBox="0 0 320 155"><path d="M160 22L174 58L212 60L183 84L192 121L160 101L128 121L137 84L108 60L146 58Z" fill="#c7f464"/><circle cx="65" cy="45" r="10" fill="#65d8ff"/><circle cx="255" cy="105" r="10" fill="#ff7777"/></svg></div><div class="service-body"><h3>Percepción visual</h3><p>Actividades para reconocer señales, ubicar estímulos y ampliar la atención visual.</p></div></article>
+      <article class="service"><div class="service-art"><svg viewBox="0 0 320 155"><circle cx="160" cy="78" r="48" fill="none" stroke="#c7f464" stroke-width="4"/><path d="M160 43V78L188 94" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M82 78H45M275 78H238" stroke="#65d8ff" stroke-width="4" stroke-linecap="round"/></svg></div><div class="service-body"><h3>Concentración</h3><p>Secuencias de atención sostenida y selección de estímulos relevantes.</p></div></article>
+      <article class="service"><div class="service-art"><svg viewBox="0 0 320 155"><path d="M160 25L235 65L205 125H115L85 65Z" fill="none" stroke="#c7f464" stroke-width="3"/><path d="M160 25V78M85 65L160 78L235 65M115 125L160 78L205 125" stroke="#fff" stroke-width="2"/><circle cx="160" cy="78" r="11" fill="#ffcf5b"/></svg></div><div class="service-body"><h3>Toma de decisiones</h3><p>Situaciones con opciones y respuestas que estimulan la elección oportuna.</p></div></article>
+      <article class="service"><div class="service-art"><svg viewBox="0 0 320 155"><rect x="78" y="28" width="164" height="100" rx="14" fill="none" stroke="#c7f464" stroke-width="3"/><path d="M105 101L135 77L158 88L202 50" fill="none" stroke="#65d8ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="202" cy="50" r="8" fill="#ffcf5b"/></svg></div><div class="service-body"><h3>Evaluación y seguimiento</h3><p>Observación del progreso y retroalimentación para orientar el entrenamiento.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Nuestra metodología</div><h2>Entrenamiento con intención, no solo con luces.</h2><p>La tecnología acompaña una metodología de ejercicios futbolísticos y seguimiento del proceso.</p></div>
+    <div class="method-grid">
+      <div class="step"><b>01 / CONOCER</b><h3>Valoración inicial</h3><p>Identificamos el punto de partida y las capacidades que se desean trabajar.</p></div>
+      <div class="step"><b>02 / ACTIVAR</b><h3>Ejercicios guiados</h3><p>Combinamos estímulos visuales, luces y movimientos adaptados al fútbol.</p></div>
+      <div class="step"><b>03 / PROGRESAR</b><h3>Retos por nivel</h3><p>Ajustamos la dificultad y proponemos nuevos desafíos de manera gradual.</p></div>
+      <div class="step"><b>04 / EVALUAR</b><h3>Retroalimentación</h3><p>Revisamos avances y orientamos los siguientes objetivos de entrenamiento.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="research" id="investigacion">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Investigación de mercado</div><h2>Una propuesta construida escuchando a los deportistas.</h2><p>Resultados preliminares de la encuesta de mercado de SIN FILTRO CALI compartidos para el proyecto académico.</p></div>
+    <div class="research-grid">
+      <div class="research-card"><strong>95,2%</strong><span>Considera importantes o muy importantes las capacidades cognitivas en el deporte.</span></div>
+      <div class="research-card"><strong>33,3%</strong><span>Identificó la toma de decisiones como una capacidad que necesita mejorar.</span></div>
+      <div class="research-card"><strong>76,2%</strong><span>Manifestó preferencia por entrenar entre 2 y 3 veces por semana.</span></div>
+      <div class="research-card"><strong>57,1%</strong><span>Señaló WhatsApp como canal preferido de contacto.</span></div>
+    </div>
+    <p class="research-note">Nota académica: porcentajes transcritos de los resultados preliminares suministrados para el proyecto. Antes de publicar o tomar decisiones comerciales, se deben contrastar con la base original de respuestas y confirmar el tamaño válido de la muestra, ya que el borrador reporta inconsistencias entre algunos porcentajes y el número de participantes.</p>
+  </div>
+</section>
+
+<section id="planes">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Planes de entrenamiento</div><h2>Empieza a entrenar tus decisiones.</h2><p>Valores planteados como referencia inicial del proyecto y sujetos a validación de costos y prueba piloto.</p></div>
+    <div class="plans">
+      <div class="plan featured"><h3>Plan mensual piloto</h3><div class="price">$170.000 <small>COP / mes · valor propuesto</small></div><p>Una primera experiencia para conocer la metodología y trabajar capacidades cognitivas aplicadas al fútbol.</p><ul><li>Sesiones complementarias de entrenamiento</li><li>Ejercicios con luces inteligentes</li><li>Progresión por nivel</li><li>Retroalimentación del proceso</li></ul><a class="btn" href="#contacto">Solicitar información</a></div>
+      <div class="plan"><h3>Sesión individual</h3><div class="price">Consultar <small>según programación</small></div><p>Alternativa para conocer el servicio o reforzar objetivos puntuales.</p><ul><li>Orientación inicial</li><li>Ejercicios adaptados</li><li>Trabajo de capacidades específicas</li><li>Recomendaciones de continuidad</li></ul><a class="btn" href="#contacto">Consultar disponibilidad</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap contact-inner">
+    <div><div class="kicker">Da el siguiente paso</div><h2>Tu próximo nivel empieza con una decisión.</h2><p>Escríbenos para conocer el entrenamiento piloto de SIN FILTRO CALI.</p></div>
+    <a class="btn" href="mailto:contacto@sinfiltrocali.com?subject=Informaci%C3%B3n%20SIN%20FILTRO%20CALI">Solicitar información</a>
+  </div>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><div><strong style="color:white;letter-spacing:1px">SIN FILTRO CALI</strong><div class="disclaimer">Entrenamiento cognitivo-deportivo · Cali, Colombia</div></div><div>Proyecto académico · Landing Page</div></div></footer>
+</body>
+</html>
